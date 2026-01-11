@@ -12,7 +12,6 @@ import { IoCartOutline, IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Page";
 import Image from "next/image";
 import Link from "next/link";
-import speaker from "@/app/aset/speaker.png";
 import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Playstation from "@/app/aset/Keranjang/Playstation5.png";
 import LCDMonitor from "@/app/aset/monitor.png";
@@ -29,14 +28,6 @@ const formatPrice = (price: number | string) => {
 
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
-  const [currentImage, setCurrentImage] = useState(speaker);
-
-  const colors = [
-    { name: "Black", value: "black" },
-    { name: "Beige", value: "beige" },
-  ];
-
-  const sizes = ["XS", "S", "M", "L", "XL"];
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">

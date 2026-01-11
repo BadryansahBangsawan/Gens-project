@@ -42,8 +42,6 @@ import Link from "next/link";
 
 // Define the Fashion component
 function Fashion() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -103,7 +101,7 @@ function Fashion() {
   };
 
   // Product card component for reuse
-  const ProductCard = ({ item, index }) => (
+  const ProductCard = ({ item }) => (
     <motion.div
       variants={itemVariants}
       className="h-full"
@@ -470,7 +468,7 @@ function Fashion() {
             animate={isInView ? "visible" : "hidden"}
           >
             {tShirts.map((item, index) => (
-              <ProductCard key={index} item={item} index={index} />
+              <ProductCard key={index} item={item} />
             ))}
           </motion.div>
         </section>
@@ -496,7 +494,7 @@ function Fashion() {
             viewport={{ once: true, amount: 0.1 }}
           >
             {hoodies.map((item, index) => (
-              <ProductCard key={index} item={item} index={index} />
+              <ProductCard key={index} item={item} />
             ))}
           </motion.div>
         </section>
@@ -522,7 +520,7 @@ function Fashion() {
             viewport={{ once: true, amount: 0.1 }}
           >
             {sportswear.map((item, index) => (
-              <ProductCard key={index} item={item} index={index} />
+              <ProductCard key={index} item={item} />
             ))}
           </motion.div>
         </section>
@@ -548,7 +546,7 @@ function Fashion() {
             viewport={{ once: true, amount: 0.1 }}
           >
             {bags.map((item, index) => (
-              <ProductCard key={index} item={item} index={index} />
+              <ProductCard key={index} item={item} />
             ))}
           </motion.div>
         </section>
@@ -574,7 +572,7 @@ function Fashion() {
             viewport={{ once: true, amount: 0.1 }}
           >
             {sandals.map((item, index) => (
-              <ProductCard key={index} item={item} index={index} />
+              <ProductCard key={index} item={item} />
             ))}
           </motion.div>
         </section>

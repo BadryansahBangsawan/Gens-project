@@ -36,8 +36,6 @@ import Gadget25 from "@/app/aset/AssetGadget/25.png";
 import Link from "next/link";
 
 function Gadget() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -486,7 +484,7 @@ function Gadget() {
             animate={isInView ? "visible" : "hidden"}
           >
             <div className="w-1 h-6 bg-[#315CEA]"></div>
-            <h2 className="text-base text-[#315CEA]">Today's Top Picks</h2>
+            <h2 className="text-base text-[#315CEA]">Today&apos;s Top Picks</h2>
           </motion.div>
 
           <motion.div

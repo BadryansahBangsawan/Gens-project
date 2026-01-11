@@ -11,8 +11,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function TambahProduk() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [activeMenuItem, setActiveMenuItem] = useState("Tambah Produk Baru");
   const [savedProducts, setSavedProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editingProductId, setEditingProductId] = useState(null);
@@ -259,19 +257,6 @@ export default function TambahProduk() {
     visible: {
       opacity: 1,
       transition: { duration: 0.5 },
-    },
-  };
-
-  const sidebarVariants = {
-    open: {
-      width: "240px",
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
-    closed: {
-      width: "0px",
-      opacity: 0,
-      transition: { duration: 0.3 },
     },
   };
 

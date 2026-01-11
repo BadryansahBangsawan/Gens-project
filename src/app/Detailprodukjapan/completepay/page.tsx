@@ -9,24 +9,16 @@ import {
   IoCard,
   IoShieldCheckmark,
   IoTime,
-  IoDownload,
 } from "react-icons/io5";
 
 const PaymentCompletedPage = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
   const [orderNumber] = useState(
     `ORD-${Math.floor(100000 + Math.random() * 900000)}`
   );
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
-    setIsAnimating(true);
     setShowConfetti(true);
-
-    // Simulating order details loading
-    const timer = setTimeout(() => {
-      setIsAnimating(false);
-    }, 1000);
 
     // Hide confetti after some time
     const confettiTimer = setTimeout(() => {
@@ -34,7 +26,6 @@ const PaymentCompletedPage = () => {
     }, 5000);
 
     return () => {
-      clearTimeout(timer);
       clearTimeout(confettiTimer);
     };
   }, []);

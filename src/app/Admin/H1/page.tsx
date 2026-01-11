@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Logo from "@/app/aset/logo.png";
 import { motion } from "framer-motion";
@@ -8,14 +8,8 @@ import {
   IoTrendingUp,
   IoTrendingDown,
   IoEllipsisHorizontal,
-  IoFilter,
   IoStar,
 } from "react-icons/io5";
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -40,7 +34,6 @@ const itemFade = {
 };
 
 const AdminDashboard = () => {
-  const [isVisible, setIsVisible] = useState({});
   const stats = [
     {
       title: "Total Sales",
@@ -106,25 +99,6 @@ const AdminDashboard = () => {
       rating: 5,
     },
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible((prev) => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting,
-          }));
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document
-      .querySelectorAll("[data-animate]")
-      .forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">

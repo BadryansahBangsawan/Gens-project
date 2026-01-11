@@ -14,9 +14,7 @@ import Siderbar from "../SiderSeller/page";
 
 function Dashboard() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [logoPreview, setLogoPreview] = useState(null);
-  const [activeMenuItem, setActiveMenuItem] = useState("Profile Toko");
   const [formData, setFormData] = useState({
     namaToko: "",
     deskripsiToko: "",
@@ -66,29 +64,6 @@ function Dashboard() {
     },
   };
 
-  const sidebarVariants = {
-    open: {
-      x: 0,
-      width: "16rem",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 25,
-        duration: 0.3,
-      },
-    },
-    closed: {
-      x: isSidebarOpen ? "-16rem" : 0,
-      width: isSidebarOpen ? "16rem" : "0rem",
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 25,
-        duration: 0.3,
-      },
-    },
-  };
-
   const logoVariants = {
     rest: { scale: 1, borderColor: "#E5E7EB" },
     hover: {
@@ -115,16 +90,6 @@ function Dashboard() {
     tap: {
       scale: 0.95,
       transition: { duration: 0.1 },
-    },
-  };
-
-  const navIconVariants = {
-    rest: { y: 0, opacity: 1 },
-    hover: {
-      y: -3,
-      opacity: 1,
-      color: "#315CEA",
-      transition: { duration: 0.2 },
     },
   };
 

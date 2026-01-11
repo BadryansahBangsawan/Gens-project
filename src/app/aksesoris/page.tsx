@@ -36,8 +36,6 @@ import { IoHeart, IoEye } from "react-icons/io5";
 
 // Define the Aksesoris component
 function Aksesoris() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {

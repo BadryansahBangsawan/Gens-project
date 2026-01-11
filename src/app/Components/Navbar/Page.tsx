@@ -136,16 +136,6 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleCartInteraction = () => {
-    if (isMobile) {
-      // On mobile, navigate directly to cart page
-      window.location.href = "Pages/Keranjang2";
-    } else {
-      // On desktop, toggle dropdown
-      setCartOpen(!cartOpen);
-    }
-  };
-
   const handleMouseEnter = () => {
     if (!isMobile) {
       setCartOpen(true);

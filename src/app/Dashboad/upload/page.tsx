@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import Siderbar from "../SiderSeller/page";
 import { motion, AnimatePresence } from "framer-motion";
 

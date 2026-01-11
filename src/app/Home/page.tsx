@@ -23,8 +23,6 @@ import speaker from "@/app/aset/speaker.png";
 import stik from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Playstation from "@/app/aset/Keranjang/Playstation5.png";
 import Jamputih from "@/app/aset/Keranjang/JamTanganputih.png";
-import Parfume from "@/app/aset/Keranjang/parfum.png";
-import Parfume2 from "@/app/aset/Keranjang/parfum2.png";
 import foto2 from "@/app/aset/assetHome/2.png";
 import foto3 from "@/app/aset/assetHome/3.png";
 import foto4 from "@/app/aset/assetHome/4.png";
@@ -67,8 +65,6 @@ interface MusicTimer {
 }
 
 function Home() {
-  // Mobile menu state
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState<IsVisibleState>({});
 
   // Check if element is in viewport for scroll animations
@@ -331,7 +327,7 @@ function Home() {
               className="text-base text-[#315CEA] flex items-center gap-1"
             >
               <IoFlame className="animate-pulse text-red-500" />
-              Today's
+              Today&apos;s
             </motion.h2>
           </motion.div>
 
@@ -1550,7 +1546,7 @@ function Home() {
                   transition={{ delay: 0.3 }}
                   className="text-lg font-bold text-white mb-1"
                 >
-                  Women's watches
+                  Women&apos;s watches
                 </motion.h3>
                 <motion.button
                   initial={{ opacity: 0 }}
@@ -1736,7 +1732,7 @@ function Home() {
                     transition={{ delay: 0.4 }}
                     className="text-xl font-bold text-white mb-2"
                   >
-                    Women's watches
+                    Women&apos;s watches
                   </motion.h3>
                   <motion.button
                     initial={{ opacity: 0 }}

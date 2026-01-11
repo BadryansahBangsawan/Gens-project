@@ -4,7 +4,6 @@ import { FaRegHeart } from "react-icons/fa";
 import {
   IoCartOutline,
   IoClose,
-  IoArrowForward,
   IoStar,
   IoStarHalf,
 } from "react-icons/io5";

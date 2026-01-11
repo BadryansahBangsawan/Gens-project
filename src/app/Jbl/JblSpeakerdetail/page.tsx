@@ -28,14 +28,7 @@ const formatPrice = (price: number | string) => {
 
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
-  const [currentImage, setCurrentImage] = useState(speaker);
-
-  const colors = [
-    { name: "Black", value: "black" },
-    { name: "Beige", value: "beige" },
-  ];
-
-  const sizes = ["XS", "S", "M", "L", "XL"];
+  const [currentImage] = useState(speaker);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
