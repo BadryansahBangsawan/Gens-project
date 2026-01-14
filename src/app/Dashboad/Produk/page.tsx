@@ -5,7 +5,7 @@ import { IoAddOutline } from "react-icons/io5";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 import Link from "next/link";
-import Siderbar from "../SiderSeller/page";
+import Siderbar from "../../../Components/SiderSeller/Sidebar";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TambahProduk() {
@@ -52,7 +52,7 @@ export default function TambahProduk() {
   }, []);
 
   // Function to handle input changes
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProductData((prev) => ({
       ...prev,
@@ -61,6 +61,7 @@ export default function TambahProduk() {
   };
 
   // Function to handle file selection
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFileSelect = (e) => {
     if (e.target.files && selectedFiles.length < 3) {
       const newFiles = Array.from(e.target.files).map((file) => ({

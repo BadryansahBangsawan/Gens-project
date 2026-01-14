@@ -7,14 +7,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 function Sign() {
-  // Animation states
-  const [isVisible, setIsVisible] = useState(false);
   // User type state (buyer or seller)
   const [userType, setUserType] = useState("buyer"); // Default to buyer
 
   useEffect(() => {
-    // Set animation visible after component mounts
-    setIsVisible(true);
+    // Mencegah scrolling pada body
 
     // Mencegah scrolling pada body
     document.body.style.overflow = "hidden";

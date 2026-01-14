@@ -20,10 +20,11 @@ import ps5 from "@/app/aset/assetHome/3.png";
 import foto2 from "@/app/aset/assetHome/2.png";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
-  const cartDropdownRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const [cartOpen, setCartOpen] = useState(false);
+   const cartDropdownRef = useRef<HTMLDivElement>(null);
+   const chatDropdownRef = useRef<HTMLDivElement>(null);
+   const [isMobile, setIsMobile] = useState(false);
 
   // Chat with seller states
   const [chatOpen, setChatOpen] = useState(false);
@@ -39,11 +40,10 @@ const Navbar = () => {
       sender: "user",
       time: "10:32",
     },
-  ]);
-  const [showTyping, setShowTyping] = useState(false);
-  const chatDropdownRef = useRef(null);
+   ]);
+   const [showTyping, setShowTyping] = useState(false);
 
-  // Check if we're on mobile
+   // Check if we're on mobile
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -99,7 +99,7 @@ const Navbar = () => {
   ];
 
   // Format currency
-  const formatPrice = (price) => {
+  const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID").format(price);
   };
 
@@ -114,17 +114,18 @@ const Navbar = () => {
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   // Close dropdown when clicking outside
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         cartDropdownRef.current &&
-        !cartDropdownRef.current.contains(event.target)
+        !cartDropdownRef.current.contains(event.target as Node)
       ) {
         setCartOpen(false);
       }
       if (
         chatDropdownRef.current &&
-        !chatDropdownRef.current.contains(event.target)
+        !chatDropdownRef.current.contains(event.target as Node)
       ) {
         setChatOpen(false);
       }
@@ -179,7 +180,7 @@ const Navbar = () => {
     }
   };
 
-  const handleKeyPress = (e) => {
+   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleSend();
     }

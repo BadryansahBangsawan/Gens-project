@@ -1,10 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
   FaCreditCard,
   FaMapMarkerAlt,
   FaPhone,

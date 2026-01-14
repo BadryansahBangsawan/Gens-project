@@ -4,12 +4,19 @@ import React, { useState, useEffect } from "react";
 import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 import Link from "next/link";
 
-const Sidebar = ({
+interface SidebarProps {
+  isSidebarOpen?: boolean;
+  setIsSidebarOpen?: (value: boolean) => void;
+  activeMenuItem?: string;
+  setActiveMenuItem?: (value: string) => void;
+}
+
+export default function Sidebar({
   isSidebarOpen = true,
   setIsSidebarOpen,
   activeMenuItem = "",
   setActiveMenuItem,
-}) => {
+}: SidebarProps) {
   const [localIsSidebarOpen, setLocalIsSidebarOpen] = useState(isSidebarOpen);
   const [localActiveMenuItem, setLocalActiveMenuItem] =
     useState(activeMenuItem);
@@ -54,7 +61,7 @@ const Sidebar = ({
     }
   };
 
-  const handleMenuItemClick = (item) => {
+  const handleMenuItemClick = (item: string) => {
     if (setActiveMenuItem) {
       setActiveMenuItem(item);
     } else {
@@ -141,6 +148,4 @@ const Sidebar = ({
       </aside>
     </>
   );
-};
-
-export default Sidebar;
+}

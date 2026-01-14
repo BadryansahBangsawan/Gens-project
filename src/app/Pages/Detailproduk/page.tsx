@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FaTruck, FaCreditCard } from "react-icons/fa";
-import { IoCartOutline, IoChevronDown, IoChevronUp } from "react-icons/io5";
+import { IoCartOutline } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Page";
 
 import Image from "next/image";
@@ -24,18 +24,7 @@ const formatPrice = (price: number | string) => {
 
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setSelectedColor] = useState("black");
-  const [selectedSize, setSelectedSize] = useState("M");
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(sps5);
-
-  const colors = [
-    { name: "Black", value: "black" },
-    { name: "Beige", value: "beige" },
-  ];
-
-  const sizes = ["XS", "S", "M", "L", "XL"];
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -277,46 +266,6 @@ const Detail = () => {
           </div>
         </section>
       </main>
-    </div>
-  );
-};
-// Accordion-style footer section component for mobile
-const FooterSection = ({ title, links }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="col-span-1">
-      {/* Section title with toggle on mobile */}
-      <div
-        className="flex justify-between items-center cursor-pointer sm:cursor-default mb-2 sm:mb-4"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <h3 className="text-base sm:text-lg font-semibold">{title}</h3>
-        <button className="sm:hidden">
-          {isOpen ? <IoChevronUp /> : <IoChevronDown />}
-        </button>
-      </div>
-
-      {/* Links - Collapsed on mobile if closed */}
-      <ul
-        className={`space-y-2 overflow-hidden transition-all duration-300 
-          ${
-            isOpen
-              ? "max-h-48 opacity-100"
-              : "max-h-0 opacity-0 sm:max-h-48 sm:opacity-100"
-          }`}
-      >
-        {links.map((link, index) => (
-          <li key={index}>
-            <Link
-              href={link.href}
-              className="text-sm text-black hover:text-blue-600 transition-colors"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };

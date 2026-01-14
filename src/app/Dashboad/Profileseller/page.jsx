@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import Siderbar from "../SiderSeller/page";
+import Siderbar from "../../../Components/SiderSeller/Sidebar";
 
 function Dashboard() {
   const [isLoaded, setIsLoaded] = useState(false);

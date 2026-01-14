@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
-import Siderbar from "../SiderSeller/page";
+import Siderbar from "../../../Components/SiderSeller/Sidebar";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function UploadResi() {

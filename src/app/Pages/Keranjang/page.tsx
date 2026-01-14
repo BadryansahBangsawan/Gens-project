@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FaArrowLeft,
   FaTrashAlt,
@@ -25,9 +25,6 @@ const formatPrice = (price: number | string) => {
 };
 
 const Keranjang = () => {
-  // Animation states
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   // Cart item with quantity state
   const [cartItems, setCartItems] = useState([
     {
@@ -101,11 +98,6 @@ const Keranjang = () => {
       alert("Invalid coupon code");
     }
   };
-
-  // Animation on mount
-  useEffect(() => {
-    setIsPageLoaded(true);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 text-black flex flex-col">

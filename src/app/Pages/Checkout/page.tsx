@@ -1,10 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
   FaCreditCard,
   FaMapMarkerAlt,
   FaPhone,
@@ -19,237 +15,7 @@ import Gamepad from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Navbar from "../../Components/Navbar/Page";
 import { useRouter } from "next/navigation";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-
-// Animasi untuk Footer
-const Footer = () => {
-  const footerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const socialIconVariants = {
-    hidden: { scale: 0 },
-    visible: {
-      scale: 1,
-      transition: { type: "spring", stiffness: 200 },
-    },
-    hover: {
-      scale: 1.2,
-      rotate: 5,
-      transition: { duration: 0.2 },
-    },
-  };
-
-  return (
-    <motion.footer
-      className="bg-white text-black py-10 border-t border-gray-200"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={footerVariants}
-    >
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {/* Tentang Grip.com */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
-              Tentang Grip.com
-            </h3>
-            <ul className="space-y-2">
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/about"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Tentang Kami
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/karir"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Karir
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/blog"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Blog
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/press"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Press
-                </Link>
-              </motion.li>
-            </ul>
-          </motion.div>
-
-          {/* Promo & Layanan */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
-              Promo & Layanan
-            </h3>
-            <ul className="space-y-2">
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/promo"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Promo
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/layanan"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Layanan
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/syarat-ketentuan"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Syarat & Ketentuan
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/kebijakan-privasi"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Kebijakan Privasi
-                </Link>
-              </motion.li>
-            </ul>
-          </motion.div>
-
-          {/* Pusat Bantuan */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-lg font-semibold mb-4 border-b pb-2">
-              Pusat Bantuan
-            </h3>
-            <ul className="space-y-2">
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/faq"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  FAQ
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/kontak"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Kontak
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/pengembalian"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Pengembalian
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                <Link
-                  href="/pengiriman"
-                  className="hover:text-blue-600 transition-colors duration-300"
-                >
-                  Pengiriman
-                </Link>
-              </motion.li>
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Social Media Icons */}
-        <motion.div
-          className="mt-8 flex justify-center sm:justify-end space-x-6"
-          variants={itemVariants}
-        >
-          <motion.a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-blue-600 bg-gray-100 p-3 rounded-full"
-            variants={socialIconVariants}
-            whileHover="hover"
-          >
-            <FaFacebookF size={20} />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-blue-400 bg-gray-100 p-3 rounded-full"
-            variants={socialIconVariants}
-            whileHover="hover"
-          >
-            <FaTwitter size={20} />
-          </motion.a>
-          <motion.a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-pink-600 bg-gray-100 p-3 rounded-full"
-            variants={socialIconVariants}
-            whileHover="hover"
-          >
-            <FaInstagram size={20} />
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black hover:text-blue-800 bg-gray-100 p-3 rounded-full"
-            variants={socialIconVariants}
-            whileHover="hover"
-          >
-            <FaLinkedinIn size={20} />
-          </motion.a>
-        </motion.div>
-
-        {/* Copyright Notice */}
-        <motion.div
-          className="mt-8 text-center text-sm"
-          variants={itemVariants}
-        >
-          <p>&copy; 2025 Grip.com. All rights reserved.</p>
-        </motion.div>
-      </div>
-    </motion.footer>
-  );
-};
 
 // Tambahkan fungsi formatPrice untuk rupiah
 const formatPrice = (price: number | string) => {
@@ -260,7 +26,7 @@ const formatPrice = (price: number | string) => {
 };
 
 // Replace the existing generateWhatsAppMessage function with this:
-const generateWhatsAppMessage = (formData, totalPrice) => {
+const generateWhatsAppMessage = (formData: { name: string; address: string; postalCode: string; phone: string; message?: string }, totalPrice: string) => {
   const message = `Halo, saya ingin melakukan konfirmasi pembayaran:
   
 Nama: ${formData.name}
@@ -302,7 +68,7 @@ export default function Checkout() {
     return () => clearTimeout(timer);
   }, [formData]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -766,7 +532,7 @@ export default function Checkout() {
                         const waUrl = `https://api.whatsapp.com/send?phone=${waNumber}&text=${message}`;
 
                         // Open WhatsApp in a new window
-                        const waWindow = window.open(waUrl, "_blank");
+                        window.open(waUrl, "_blank");
 
                         // Redirect to completion page after WhatsApp window is opened
                         setTimeout(() => {

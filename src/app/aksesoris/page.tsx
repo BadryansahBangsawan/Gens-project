@@ -97,7 +97,8 @@ function Aksesoris() {
   };
 
   // Product card component for reuse with animation
-  const ProductCard = ({ item, index }) => (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ProductCard = ({ item, index }: { item: { name: string; slug: string; img: any; price: number; originalPrice: number; discount: number; rating: number; reviews: number }; index: number }) => (
     <motion.div
       variants={itemVariants}
       className="h-full"

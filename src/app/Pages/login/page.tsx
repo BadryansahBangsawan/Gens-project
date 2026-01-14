@@ -1,18 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/app/aset/logo.png";
 import { motion } from "framer-motion";
 
 function Login() {
-  // Animation states
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     // Set animation visible after component mounts
-    setIsVisible(true);
   }, []);
 
   return (
@@ -242,7 +238,7 @@ function Login() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 1.8 }}
               >
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <Link
                   href="Signup/"
                   className="text-blue-500 hover:underline font-medium"

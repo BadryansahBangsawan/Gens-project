@@ -19,15 +19,6 @@ interface SecurityFormData {
   confirmPassword: string;
 }
 
-interface Address {
-  id: number;
-  type: string;
-  name: string;
-  phone: string;
-  address: string;
-  isPrimary: boolean;
-}
-
 interface OrderItem {
   name: string;
   price: number;
@@ -65,33 +56,11 @@ const Profile = () => {
     confirmPassword: "",
   });
 
-  // Addresses state
-  const [addresses, setAddresses] = useState<Address[]>([
-    {
-      id: 1,
-      type: "Rumah",
-      name: "Ahmad Rizky",
-      phone: "+62 812-3456-789",
-      address:
-        "Jl. Jendral Sudirman No. 123, Kecamatan Setiabudi, Jakarta Selatan, DKI Jakarta, 12190",
-      isPrimary: true,
-    },
-    {
-      id: 2,
-      type: "Kantor",
-      name: "Ahmad Rizky",
-      phone: "+62 812-3456-789",
-      address:
-        "The East Tower, Jl. HR Rasuna Said Kav. C-11, Kecamatan Setiabudi, Jakarta Selatan, DKI Jakarta, 12940",
-      isPrimary: false,
-    },
-  ]);
-
   // Orders filter state
   const [orderFilter, setOrderFilter] = useState("all");
 
   // Orders state
-  const [orders, setOrders] = useState<Order[]>([
+  const orders: Order[] = [
     {
       id: "INV/20250323/MPL/12345678",
       date: "23 Mar 2025",
@@ -124,18 +93,7 @@ const Profile = () => {
       additionalItems: 0,
       total: 4299000,
     },
-  ]);
-
-  // Show/hide new address form
-  const [showNewAddressForm, setShowNewAddressForm] = useState(false);
-  const [newAddressForm, setNewAddressForm] = useState<
-    Omit<Address, "id" | "isPrimary">
-  >({
-    type: "",
-    name: "",
-    phone: "",
-    address: "",
-  });
+  ];
 
   // Handlers for profile form
   const handleProfileChange = (
@@ -188,67 +146,6 @@ const Profile = () => {
     });
   };
 
-  // Address handlers
-  const handleAddressSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Validate address form
-    if (
-      !newAddressForm.type ||
-      !newAddressForm.name ||
-      !newAddressForm.phone ||
-      !newAddressForm.address
-    ) {
-      alert("Semua kolom harus diisi");
-      return;
-    }
-
-    // Add new address
-    const newAddress: Address = {
-      id: addresses.length + 1,
-      ...newAddressForm,
-      isPrimary: addresses.length === 0, // Make primary if first address
-    };
-
-    setAddresses((prev) => [...prev, newAddress]);
-    setShowNewAddressForm(false);
-    setNewAddressForm({
-      type: "",
-      name: "",
-      phone: "",
-      address: "",
-    });
-
-    alert("Alamat baru berhasil ditambahkan!");
-  };
-
-  const handleDeleteAddress = (id: number) => {
-    if (confirm("Apakah Anda yakin ingin menghapus alamat ini?")) {
-      const deletedAddress = addresses.find((addr) => addr.id === id);
-      setAddresses((prev) => prev.filter((addr) => addr.id !== id));
-
-      // If deleted address was primary, make the first remaining address primary
-      if (deletedAddress && deletedAddress.isPrimary && addresses.length > 1) {
-        setAddresses((prev) =>
-          prev.map((addr, index) =>
-            index === 0 ? { ...addr, isPrimary: true } : addr
-          )
-        );
-      }
-    }
-  };
-
-  const handleSetPrimaryAddress = (id: number) => {
-    setAddresses((prev) =>
-      prev.map((addr) => ({
-        ...addr,
-        isPrimary: addr.id === id,
-      }))
-    );
-
-    alert("Alamat utama berhasil diubah!");
-  };
-
   // Order handlers
   const handleOrderFilter = (filter: string) => {
     setOrderFilter(filter);
@@ -264,17 +161,6 @@ const Profile = () => {
 
   const handleBuyAgain = (id: string) => {
     alert(`Membeli kembali dari pesanan: ${id}`);
-  };
-
-  // New address form handlers
-  const handleNewAddressChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setNewAddressForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
   };
 
   return (
